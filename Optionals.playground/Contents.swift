@@ -28,7 +28,19 @@ var dict : [String: Int?] = [
     "three": nil
 ]
 
-dict["three"] = nil
-dict.updateValue(5, forKey: "three")
+let ages = [
+    "Tim": 53, "Angela": 54, "Craig": 44,
+    "Jony": 47, "Chris": 37, "Michael": 34,
+]
+
+//: FOrce unwrap because we know that the value will always be there
+let below50 = ages.keys.filter { ages[$0]! < 50 }.sorted()
+
+//: This Version has possible performance benefits becuase it avoids unnecesary lookups
+let under50 = ages.filter { $0.value < 50 }.map { $0.key }.sorted()
+
+
+
+
 
 
